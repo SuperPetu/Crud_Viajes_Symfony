@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proveedores Viajes Para Ti</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../public/style.css">
+</head>
+<body>
+<div>
+    <form action="../public/insertar.php" method="POST">
+        <h1>Crear proveedor</h1>
+        <input type="text" name="nombre" placeholder="Nombre" required>
+        <input type="email" name="correo" placeholder="ejemplo@dominio.com" required>
+        <input type="tel" name="telefono" placeholder="123456789" pattern="[0-9]{9}" required />
+        <select name="tipo" required>
+            <option value="" disabled selected hidden>Selecciona tipo proveedor</option>
+            <option value="hotel">hotel</option>
+            <option value="pista">pista</option>
+            <option value="complemento">complemento</option>
+        </select>
+        <input type="checkbox" id="activo" name="activo" value="1">
+        <label for="activo" class="checkbox-label">Activo</label>
+        <input type="submit" value="Agregar">
+    </form>
+</div>
+
+<div>
+    <h2>Proveedores Registrados</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Teléfono</th>
+            <th>Tipo de proveedor</th>
+            <th>Activo</th>
+            <th>Fecha introducción</th>
+            <th>Fecha última modificación</th>
+            <th></th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in query %}
+            <tr>
+                <th>{{ row['Nombre'] }}</th>
+                <th>
+                    {{ row['Correo electrónico'] }}
+                    <button class="button copy-button" onclick="copyContent('{{ row['Correo electrónico'] }}')"><i class="fas fa-copy"></i></button>
+                </th>
+
+                <th>
+                    {{ row['Teléfono'] }}
+                    <button class="button copy-button" onclick="copyContent('{{ row['Teléfono'] }}')"><i class="fas fa-copy"></i></button>
+                </th>
+
+                <th>{{ row['Tipo de proveedor'] }}</th>
+                <th>{% if row['Activo'] %}Sí{% else %}No{% endif %}</th>
+                <th>{{ row['Fecha introducción'] }}</th>
+                <th>{{ row['Fecha última modificación'] }}</th>
+
+
+                <th><a href="../public/editar.php?id={{ row['id'] }}" class="proveedores-table--edit">Editar</a></th>
+
+                <th><a href="../public/borrar.php?id={{ row['id'] }}" class="proveedores-table--delete" >Eliminar</a></th>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function copyContent(text) {
+        navigator.clipboard.writeText(text);
+    }
+</script>
+
+</body>
+</html>

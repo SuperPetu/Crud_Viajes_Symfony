@@ -1,0 +1,109 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    max-width: 800px;
+    background-color: #fff;
+}
+
+h1, h2 {
+    color: #333;
+}
+form {
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    font-family: Arial, sans-serif;
+    width: 20%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+}
+select {
+    width: 350px;
+}
+
+input[type="checkbox"] {
+    height: 20px;
+    width: 20px;
+    background-color: #ccc;
+    cursor: pointer;
+}
+label{
+    color: black;
+    font-size: 17px;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilos de tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: #f0f0f0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+input[type="submit"] {
+    font-family: Arial, sans-serif;
+    display: block;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.proveedores-table--edit {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #28a745; /* Green color */
+    color: #fff;
+    border-radius: 5px;
+}
+
+.proveedores-table--edit:hover {
+    background-color: #218838; /* Darker green color on hover */
+}
+
+.proveedores-table--delete {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #dc3545; /* Red color */
+    color: #fff;
+    border-radius: 5px;
+}
+
+.proveedores-table--delete:hover {
+    background-color: #c82333; /* Darker red color on hover */
+}
+

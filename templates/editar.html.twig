@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar usuarios</title>
+    <link rel="stylesheet" href="../public/style.css">
+</head>
+<body>
+<div class="users-form">
+    <form action="../public/editar_proveedor.php" method="POST">
+        <h1>Editar proveedor</h1>
+        <input type="hidden" name="id" value="{{ row.id }}">
+        <input type="text" name="nombre" placeholder="Nombre" value="{{ row['Nombre'] }}" required>
+        <input type="email" name="correo" placeholder="ejemplo@dominio.com" value="{{ row['Correo electrónico'] }}" required>
+        <input type="tel" name="telefono" placeholder="123456789" value="{{ row['Teléfono'] }}" pattern="[0-9]{9}" required>
+        <select name="tipo" required>
+            <option value="{{ row['Tipo de proveedor'] }}" selected hidden>{{ row['Tipo de proveedor'] }}</option>
+            <option value="hotel">hotel</option>
+            <option value="pista">pista</option>
+            <option value="complemento">complemento</option>
+        </select>
+        <input type="checkbox" id="activo" name="activo" value="1" {% if row.Activo == 1 %} checked {% endif %}>
+        <label for="activo" class="checkbox-label">Activo</label>
+        <input type="submit" value="Actualizar">
+    </form>
+</div>
+</body>
+</html>
